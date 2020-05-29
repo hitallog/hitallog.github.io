@@ -1,117 +1,120 @@
-<script>
-	var mainCtr = $("#main-ctr"),
-    hello = $(".hello"),
-    eyeLeft = $("#eye-left"),
-    eyeRight = $("#eye-right"),
-    eyeToLeft = $("#eye-to-left"),
-    eyeToRight = $("#eye-to-right"),
-    wink = $("#wink"),
-    smileUp = $("#smile-up"),
-    smileDown = $("#smile-down"),
-    smile = $("#smile");
+<html>
+<head>
+	<style type="text/css">
+		@import "bourbon";
+		@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
 
-var tl = new TimelineMax({
-  repeat: -1,
-  repeatDelay: .3,
-  delay: .3
-});
+		html,
+		body {
+		  display: table;
+		  width: 100%;
+		  height: 100%;
+		  background: black;
+		}
 
-TweenMax.set([mainCtr, hello], {
-  opacity: 0
-});
+		.hello {
+		  color: white;
+		  letter-spacing: 2px;
+		  font-size: 25px;
+		  font-family: "roboto";
+		  font-weight: 300;
+		}
 
-tl
-  .to(mainCtr, .3, {
-    opacity: 1
-  })
-  .to(smileDown, .3, {
-    morphSVG: "#smile-up"
-  })
-  .to(smile, .3, {
-    rotation: -30,
-    transformOrigin: "center center",
-    ease: Circ.ease
-  })
-  .to(smile, .9, {
-    rotation: 900,
-    transformOrigin: "center center",
-    ease: Circ.easeInOut
-  })
-  .to(eyeLeft, .3, {
-    morphSVG: "#eye-to-left",
-    ease: Power2.ease
-  }, "-=.3")
-  .to(eyeRight, .3, {
-    morphSVG: "#eye-to-right",
-    ease: Power2.ease
-  }, "-=.3")
-  .to(eyeRight, .1, {
-    scaleY: .25,
-    transformOrigin: "center center"
-  })
-  .to(eyeRight, .1, {
-    scaleY: 1
-  })
-  .to(hello, .3, {
-    opacity: 1
-  }, "-=.3")
-  .to(mainCtr, .6, {
-    delay: 1,
-    opacity: 0
-  })
+		#main-ctr {
+		  display: table-cell;
+		  vertical-align: middle;
+		  text-align: center;
+		}
 
-// copy
-balapaCop("Desenvolvido por Hitallo Guerra", "rgba(255,255,255,.8)");
-</script>
+		.content {
+		  border: 1px solid black;
+		  display: inline-block;
+		  position: relative;
+		}
 
-<style>
-@import "bourbon";
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+		svg {
 
-html,
-body {
-  display: table;
-  width: 100%;
-  height: 100%;
-  background: black;
-}
+		  @include transform(scale(.5));
 
-.hello {
-  color: white;
-  letter-spacing: 2px;
-  font-size: 25px;
-  font-family: "roboto";
-  font-weight: 300;
-}
+		  #smile-up,
+		  #circle,
+		  #eye-to-left,
+		  #eye-to-right,
+		  #wink,
+		  #bg {
+		    visibility: hidden;
+		  }
+		}
+	</style>
+	
+	<script type="text/javascript">
+		var mainCtr = $("#main-ctr"),
+	    hello = $(".hello"),
+	    eyeLeft = $("#eye-left"),
+	    eyeRight = $("#eye-right"),
+	    eyeToLeft = $("#eye-to-left"),
+	    eyeToRight = $("#eye-to-right"),
+	    wink = $("#wink"),
+	    smileUp = $("#smile-up"),
+	    smileDown = $("#smile-down"),
+	    smile = $("#smile");
 
-#main-ctr {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
+	var tl = new TimelineMax({
+	  repeat: -1,
+	  repeatDelay: .3,
+	  delay: .3
+	});
 
-.content {
-  border: 1px solid black;
-  display: inline-block;
-  position: relative;
-}
+	TweenMax.set([mainCtr, hello], {
+	  opacity: 0
+	});
 
-svg {
-    
-  @include transform(scale(.5));
-  
-  #smile-up,
-  #circle,
-  #eye-to-left,
-  #eye-to-right,
-  #wink,
-  #bg {
-    visibility: hidden;
-  }
-}
-</style>
+	tl
+	  .to(mainCtr, .3, {
+	    opacity: 1
+	  })
+	  .to(smileDown, .3, {
+	    morphSVG: "#smile-up"
+	  })
+	  .to(smile, .3, {
+	    rotation: -30,
+	    transformOrigin: "center center",
+	    ease: Circ.ease
+	  })
+	  .to(smile, .9, {
+	    rotation: 900,
+	    transformOrigin: "center center",
+	    ease: Circ.easeInOut
+	  })
+	  .to(eyeLeft, .3, {
+	    morphSVG: "#eye-to-left",
+	    ease: Power2.ease
+	  }, "-=.3")
+	  .to(eyeRight, .3, {
+	    morphSVG: "#eye-to-right",
+	    ease: Power2.ease
+	  }, "-=.3")
+	  .to(eyeRight, .1, {
+	    scaleY: .25,
+	    transformOrigin: "center center"
+	  })
+	  .to(eyeRight, .1, {
+	    scaleY: 1
+	  })
+	  .to(hello, .3, {
+	    opacity: 1
+	  }, "-=.3")
+	  .to(mainCtr, .6, {
+	    delay: 1,
+	    opacity: 0
+	  })
 
+	// copy
+	balapaCop("Desenvolvido por Hitallo Guerra", "rgba(255,255,255,.8)");
+	</script>
+</head>
 
+<body>
 <div id="main-ctr">
   <svg xmlns="http://www.w3.org/2000/svg" width="294" height="241" viewBox="0 0 294 241">
     <g id="group" fill="none" fill-rule="evenodd">
@@ -128,3 +131,7 @@ svg {
   </svg>
   <h1 class="hello">Olá terráqueo!</h1>
 </div>
+</body>
+	
+</html>
+
